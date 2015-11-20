@@ -12,9 +12,10 @@ public abstract class AbstractLine {
         supervisors = 0;
     }
 
-    abstract void processNextPassenger() throws InvalidOperationException;
+    abstract Queueable processNextPassenger() throws InvalidOperationException;
     abstract <E extends Queueable> void addPassenger(E passenger) throws InvalidOperationException;
     abstract void checkIfLineIsBusy();
+    abstract int getLineLength();
 
     boolean hasSupervisor() {
         return hasSupervisor;

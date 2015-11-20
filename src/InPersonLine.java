@@ -8,21 +8,22 @@ public class InPersonLine<T> extends AbstractLine {
     }
 
     @Override
-    public void processNextPassenger() throws InvalidOperationException {
+    public Queueable processNextPassenger() throws InvalidOperationException {
         if(!frequentFlyerLine.isEmpty() && hasAgent()) {
             computePassengerProcessingTime(frequentFlyerLine.peek());
-            frequentFlyerLine.dequeue();
+            checkIfLineIsBusy();
+            return frequentFlyerLine.dequeue();
         }
         else if(!regularPassengerLine.isEmpty() && hasAgent()) {
             computePassengerProcessingTime(regularPassengerLine.peek());
-            regularPassengerLine.dequeue();
+            checkIfLineIsBusy();
+            return regularPassengerLine.dequeue();
         }
         else {
-            String message = "Can not process passenger in line that is empty";
+            String message = "Can not process passenger in line that is empty or has no agent";
             throw new InvalidOperationException(InvalidOperationException.ErrorCode.INVALID_LINE, message);
         }
 
-        checkIfLineIsBusy();
     }
 
     @Override
@@ -44,6 +45,10 @@ public class InPersonLine<T> extends AbstractLine {
         else {
             setBusy(true);
         }
+    }
+
+    public int getLineLength() {
+        return frequentFlyerLine.size() + regularPassengerLine.size();
     }
 
 }
