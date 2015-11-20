@@ -1,5 +1,11 @@
-public class InPersonLine extends AbstractLine {
-   private Queue<? extends Queueable> line;
+public class InPersonLine<T> extends AbstractLine {
+    private Queue<Queueable> frequentFlyerLine = new Queue<>();
+    private Queue<Queueable> regularPassengerLine = new Queue<>();
+    private boolean hasSupervisor;
+
+    public InPersonLine() {
+        hasSupervisor = false;
+    }
 
     @Override
     public void processNextPassenger() {
@@ -7,7 +13,21 @@ public class InPersonLine extends AbstractLine {
     }
 
     @Override
-    public void addPassenger(Passenger p) {
-
+    public <E extends Queueable> void addPassenger(E passenger) {
+        if(passenger.isFrequentFlyer()) {
+            frequentFlyerLine.enqueue(passenger);
+        }
+        else {
+            regularPassengerLine.enqueue(passenger);
+        }
     }
+
+    public boolean hasSupervisor() {
+        return hasSupervisor;
+    }
+
+    public void setSupervisor() {
+        hasSupervisor = true;
+    }
+
 }

@@ -18,4 +18,29 @@ public class PassengerGroup implements Queueable {
     public double getProcessTime() {
         return processTime;
     }
+
+    @Override
+    public boolean isFrequentFlyer() {
+        return false;
+    }
+
+    @Override
+    public boolean isRegularPassenger() {
+        return false;
+    }
+
+    @Override
+    public boolean isReRouted() {
+        return false;
+    }
+
+    @Override
+    public boolean isOverbooked() {
+        return false;
+    }
+
+    @Override
+    public boolean isHasExcessBaggage() {
+        return false;
+    }
 }

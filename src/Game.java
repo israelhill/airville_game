@@ -9,8 +9,10 @@ public class Game {
 
     //TODO create an exception class and possibly throw errors when the player does not have enough diamonds
 
-    public Game() {
-        Agent agent = new Agent();
+    public Game(int defaultAgentLineLimit, ArrayList<AutoLine> agentAutoLines) {
+        assert (defaultAgentLineLimit > 0);
+
+        Agent agent = new Agent(defaultAgentLineLimit, agentAutoLines);
         agents.add(agent);
 
         InPersonLine line = new InPersonLine();
@@ -25,10 +27,10 @@ public class Game {
         diamonds++;
     }
 
-    public void redeemAgent() {
+    public void redeemAgent(int lineLimit, ArrayList<AutoLine> list) {
         if(hasDiamonds()) {
             diamonds--;
-            Agent agent = new Agent();
+            Agent agent = new Agent(lineLimit, list);
             agents.add(agent);
         }
     }

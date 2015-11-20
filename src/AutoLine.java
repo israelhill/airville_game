@@ -1,5 +1,5 @@
 public class AutoLine extends AbstractLine {
-    private Queue<? extends Queueable> line;
+    private Queue line;
 
     @Override
     public void processNextPassenger() {
@@ -7,7 +7,8 @@ public class AutoLine extends AbstractLine {
     }
 
     @Override
-    public void addPassenger(Passenger p) {
+    void addPassenger(Queueable passenger) {
 
     }
+
 }

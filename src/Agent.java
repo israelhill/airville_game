@@ -2,17 +2,11 @@ import java.util.ArrayList;
 
 public class Agent {
     private int lineLimit;
-    private ArrayList<InPersonLine> assignedAutomatedLines;
+    private ArrayList<AutoLine> assignedAutomatedLines;
 
-    /**
-     * default Agent can rotate between 3 lines
-     */
-    public Agent(ArrayList<InPersonLine> automatedLines) {
-        lineLimit = 3;
-        assignedAutomatedLines = automatedLines;
-    }
+    // TODO add method for adding lines to agent's auto lines?
 
-    public Agent(int lineLimit, ArrayList<InPersonLine> automatedLines) {
+    public Agent(int lineLimit, ArrayList<AutoLine> automatedLines) {
         this.lineLimit = lineLimit;
         assignedAutomatedLines = automatedLines;
     }
@@ -21,7 +15,7 @@ public class Agent {
         return lineLimit;
     }
 
-    public ArrayList<InPersonLine> getAssignedAutomatedLines() {
+    public ArrayList<AutoLine> getAssignedAutomatedLines() {
         return assignedAutomatedLines;
     }
 }

@@ -17,5 +17,25 @@ public class Passenger implements Queueable {
         processTime = 1.0;
     }
 
+    public boolean isFrequentFlyer() {
+        return isFrequentFlier;
+    }
+
+    public boolean isRegularPassenger() {
+        return isRegularPassenger;
+    }
+
+    public boolean isReRouted() {
+        return isReRouted;
+    }
+
+    public boolean isOverbooked() {
+        return isOverbooked;
+    }
+
+    public boolean isHasExcessBaggage() {
+        return hasExcessBaggage;
+    }
+
 
 }
