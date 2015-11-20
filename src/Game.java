@@ -5,14 +5,13 @@ public class Game {
     private int supervisors;
     private ArrayList<AbstractLine> inPersonLines = new ArrayList<>();
     private ArrayList<AbstractLine> automatedLines = new ArrayList<>();
+    private ArrayList<Queueable> passengers = new ArrayList<>();
     private ArrayList<Agent> agents = new ArrayList<>();
 
     //TODO create an exception class and possibly throw errors when the player does not have enough diamonds
 
-    public Game(int defaultAgentLineLimit, ArrayList<AutoLine> agentAutoLines) {
-        assert (defaultAgentLineLimit > 0);
-
-        Agent agent = new Agent(defaultAgentLineLimit, agentAutoLines);
+    public Game() {
+        Agent agent = new Agent();
         agents.add(agent);
 
         InPersonLine line = new InPersonLine();
@@ -30,7 +29,7 @@ public class Game {
     public void redeemAgent(int lineLimit, ArrayList<AutoLine> list) {
         if(hasDiamonds()) {
             diamonds--;
-            Agent agent = new Agent(lineLimit, list);
+            Agent agent = new Agent();
             agents.add(agent);
         }
     }

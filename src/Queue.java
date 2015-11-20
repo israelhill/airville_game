@@ -26,6 +26,10 @@ public class Queue<T> {
         N++;
     }
 
+    public T peek() {
+        return first.item;
+    }
+
     public T dequeue() {
         T item = first.item;
         first = first.next;

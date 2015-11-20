@@ -3,10 +3,6 @@ public interface Queueable {
     boolean isFrequentFlyer();
 
     boolean isRegularPassenger();
-
-    boolean isReRouted();
-
-    boolean isOverbooked();
-
-    boolean isHasExcessBaggage();
+    
+    void setBusyStatus(boolean value);
 }

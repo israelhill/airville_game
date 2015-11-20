@@ -1,19 +1,30 @@
 public class InPersonLine<T> extends AbstractLine {
     private Queue<Queueable> frequentFlyerLine = new Queue<>();
     private Queue<Queueable> regularPassengerLine = new Queue<>();
-    private boolean hasSupervisor;
+
 
     public InPersonLine() {
-        hasSupervisor = false;
+        super();
     }
 
     @Override
     public void processNextPassenger() {
+        if(!frequentFlyerLine.isEmpty() && hasAgent()) {
+            frequentFlyerLine.dequeue();
+        }
+        else if(!regularPassengerLine.isEmpty() && hasAgent()) {
+            regularPassengerLine.dequeue();
+        }
+        else {
+            // TODO throw an exception
+        }
 
+        checkIfLineIsBusy();
     }
 
     @Override
     public <E extends Queueable> void addPassenger(E passenger) {
+        setBusy(true);
         if(passenger.isFrequentFlyer()) {
             frequentFlyerLine.enqueue(passenger);
         }
@@ -22,12 +33,13 @@ public class InPersonLine<T> extends AbstractLine {
         }
     }
 
-    public boolean hasSupervisor() {
-        return hasSupervisor;
-    }
-
-    public void setSupervisor() {
-        hasSupervisor = true;
+    public void checkIfLineIsBusy() {
+        if(regularPassengerLine.isEmpty() && frequentFlyerLine.isEmpty()) {
+            setBusy(false);
+        }
+        else {
+            setBusy(true);
+        }
     }
 
 }

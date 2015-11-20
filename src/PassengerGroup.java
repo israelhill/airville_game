@@ -1,14 +1,17 @@
 public class PassengerGroup implements Queueable {
     private int numMembers;
     private double processTime;
+    public boolean isBusy;
+    public static final double GROUP_MULTIPLIER = 0.8;
 
     public PassengerGroup(int size) {
         numMembers = size;
+        isBusy = false;
         calculateProcessTime();
     }
 
     public void calculateProcessTime() {
-        processTime = 0.6 * numMembers;
+        processTime = GROUP_MULTIPLIER * numMembers;
     }
 
     public int getNumMembers() {
@@ -26,21 +29,12 @@ public class PassengerGroup implements Queueable {
 
     @Override
     public boolean isRegularPassenger() {
-        return false;
+        return true;
     }
 
     @Override
-    public boolean isReRouted() {
-        return false;
+    public void setBusyStatus(boolean value) {
+        isBusy = value;
     }
 
-    @Override
-    public boolean isOverbooked() {
-        return false;
-    }
-
-    @Override
-    public boolean isHasExcessBaggage() {
-        return false;
-    }
 }
