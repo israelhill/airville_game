@@ -11,8 +11,8 @@ public abstract class AbstractLine {
         supervisors = 0;
     }
 
-    abstract void processNextPassenger();
-    abstract <E extends Queueable> void addPassenger(E passenger);
+    abstract void processNextPassenger() throws InvalidOperationException;
+    abstract <E extends Queueable> void addPassenger(E passenger) throws InvalidOperationException;
     abstract void checkIfLineIsBusy();
 
     boolean hasSupervisor() {
@@ -40,13 +40,21 @@ public abstract class AbstractLine {
         hasAgent = true;
     }
 
-    //TODO removing a supervisor when there are no supervisors
-    void removeSupervisor() {
-        assert(supervisors != 0);
-                
-        supervisors--;
-        if(supervisors == 0) {
+    void removeSupervisor() throws InvalidOperationException {
+        if(supervisors > 0) {
+            supervisors--;
             hasSupervisor = false;
+        }
+        else {
+            String message = "Removing supervisor that does not exist";
+            throw new InvalidOperationException(InvalidOperationException.ErrorCode.INVALID_SUPERVISOR, message);
+        }
+    }
+
+    void checkForNullPassenger(Queueable passenger) throws InvalidOperationException {
+        if(passenger == null) {
+            String message = "Passenger is NULL";
+            throw new InvalidOperationException(InvalidOperationException.ErrorCode.INVALID_PASSENGER, message);
         }
     }
 

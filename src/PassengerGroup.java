@@ -5,7 +5,13 @@ public class PassengerGroup implements Queueable {
     public static final double GROUP_MULTIPLIER = 0.8;
 
     public PassengerGroup(int size) {
-        numMembers = size;
+        if(size > 1) {
+            numMembers = size;
+        }
+        else {
+            numMembers = 2;
+        }
+
         isBusy = false;
         calculateProcessTime();
     }

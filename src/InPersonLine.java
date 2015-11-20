@@ -8,7 +8,7 @@ public class InPersonLine<T> extends AbstractLine {
     }
 
     @Override
-    public void processNextPassenger() {
+    public void processNextPassenger() throws InvalidOperationException {
         if(!frequentFlyerLine.isEmpty() && hasAgent()) {
             frequentFlyerLine.dequeue();
         }
@@ -16,14 +16,16 @@ public class InPersonLine<T> extends AbstractLine {
             regularPassengerLine.dequeue();
         }
         else {
-            // TODO throw an exception
+            String message = "Can not process passenger in line that is empty";
+            throw new InvalidOperationException(InvalidOperationException.ErrorCode.INVALID_LINE, message);
         }
 
         checkIfLineIsBusy();
     }
 
     @Override
-    public <E extends Queueable> void addPassenger(E passenger) {
+    public <E extends Queueable> void addPassenger(E passenger) throws InvalidOperationException {
+        checkForNullPassenger(passenger);
         setBusy(true);
         if(passenger.isFrequentFlyer()) {
             frequentFlyerLine.enqueue(passenger);

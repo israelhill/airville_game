@@ -26,34 +26,52 @@ public class Game {
         diamonds++;
     }
 
-    public void redeemAgent(int lineLimit, ArrayList<AutoLine> list) {
-        if(hasDiamonds()) {
-            diamonds--;
-            Agent agent = new Agent();
-            agents.add(agent);
+    public void redeemAgent(int lineLimit, ArrayList<AutoLine> list) throws InvalidOperationException {
+        checkDiamondCount();
+
+        diamonds--;
+        Agent agent = new Agent();
+        agents.add(agent);
+    }
+
+    public void redeemSupervisor() throws InvalidOperationException {
+        checkDiamondCount();
+
+        diamonds--;
+        supervisors++;
+    }
+
+    public void redeemAutomatedLine() throws InvalidOperationException {
+        checkDiamondCount();
+
+        diamonds--;
+        AutoLine line = new AutoLine();
+        automatedLines.add(line);
+
+    }
+
+    public void redeemInPersonLines() throws InvalidOperationException {
+        checkDiamondCount();
+
+        diamonds--;
+        InPersonLine line = new InPersonLine();
+        inPersonLines.add(line);
+    }
+
+    public void checkDiamondCount() throws InvalidOperationException {
+        if(!hasDiamonds()) {
+            String message = "Not enough diamonds to redeem this entity";
+            throw new InvalidOperationException(InvalidOperationException.ErrorCode.INSUFFICIENT_DIAMONDS, message);
         }
     }
 
-    public void redeemSupervisor() {
+    public void decrementDiamonds() throws InvalidOperationException {
         if(hasDiamonds()) {
             diamonds--;
-            supervisors++;
         }
-    }
-
-    public void redeemAutomatedLine() {
-        if(hasDiamonds()) {
-            diamonds--;
-            AutoLine line = new AutoLine();
-            automatedLines.add(line);
-        }
-    }
-
-    public void redeemInPersonLines() {
-        if(hasDiamonds()) {
-            diamonds--;
-            InPersonLine line = new InPersonLine();
-            inPersonLines.add(line);
+        else {
+            String message = "Removing diamonds that do not exist";
+            throw new InvalidOperationException(InvalidOperationException.ErrorCode.INSUFFICIENT_DIAMONDS, message);
         }
     }
 

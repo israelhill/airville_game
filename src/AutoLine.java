@@ -8,12 +8,13 @@ public class AutoLine extends AbstractLine {
     }
 
     @Override
-    public void processNextPassenger() {
+    public void processNextPassenger() throws InvalidOperationException {
         if(!line.isEmpty() && hasAgent()) {
             line.dequeue();
         }
         else {
-            // TODO throw an exception
+            String message = "Can not process passenger in a line that is empty";
+            throw new InvalidOperationException(InvalidOperationException.ErrorCode.INVALID_LINE, message);
         }
 
         checkIfLineIsBusy();
@@ -30,7 +31,8 @@ public class AutoLine extends AbstractLine {
     }
 
     @Override
-    void addPassenger(Queueable passenger) {
+    void addPassenger(Queueable passenger) throws InvalidOperationException {
+        checkForNullPassenger(passenger);
         setBusy(true);
         line.enqueue(passenger);
         passenger.setBusyStatus(true);

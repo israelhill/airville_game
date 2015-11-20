@@ -19,13 +19,14 @@ public class Agent {
         return assignedAutomatedLines;
     }
 
-    public void addLineAssignment(AutoLine line) {
-        if(assignedAutomatedLines.size() < LINE_LIMIT) {
+    public void addLineAssignment(AutoLine line) throws InvalidOperationException {
+        if(assignedAutomatedLines.size() < getLineLimit()) {
             assignedAutomatedLines.add(line);
             line.addAgent();
         }
         else {
-            //TODO throw an exception
+            String message = "Cannot add line to this agent. Agent has reached line capacity";
+            throw new InvalidOperationException(InvalidOperationException.ErrorCode.INVALID_AGENT, message);
         }
     }
 }
