@@ -26,7 +26,7 @@ public class Game {
         diamonds++;
     }
 
-    public void redeemAgent(int lineLimit, ArrayList<AutoLine> list) throws InvalidOperationException {
+    public void redeemAgent() throws InvalidOperationException {
         checkDiamondCount();
 
         diamonds--;

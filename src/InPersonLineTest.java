@@ -7,6 +7,9 @@ public class InPersonLineTest {
     Passenger p;
     Passenger p1;
     Passenger p2;
+    PassengerGroup g;
+    PassengerGroup g2;
+    PassengerGroup g3;
     InPersonLine<Queueable> line;
     InPersonLine<Queueable> line2;
 
@@ -15,6 +18,9 @@ public class InPersonLineTest {
         p = new Passenger(false, false, false);
         p1 = new Passenger(true, false, false);
         p2 = new Passenger(false, false, false);
+        g = new PassengerGroup(10);
+        g2 = new PassengerGroup(20);
+        g3 = new PassengerGroup(30);
         line = new InPersonLine<>();
         line2 = new InPersonLine<>();
     }
@@ -33,8 +39,10 @@ public class InPersonLineTest {
         line.addPassenger(p);
         line.addPassenger(p1);
         line.addPassenger(p2);
+        line.addPassenger(g);
         line.addAgent();
 
+        line.processNextPassenger();
         line.processNextPassenger();
         line.processNextPassenger();
         line.processNextPassenger();
