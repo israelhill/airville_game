@@ -81,14 +81,14 @@ public class Passenger implements Queueable {
     public void setFrequentFlyer(boolean value) {
         isFrequentFlyer = value;
         if(isRegularPassenger()) {
-            setRegularPassenger(false);
+            isRegularPassenger = false;
         }
     }
 
     public void setRegularPassenger(boolean value) {
         isRegularPassenger = value;
         if(isFrequentFlyer()) {
-            setFrequentFlyer(false);
+            isFrequentFlyer = false;
         }
     }
 
