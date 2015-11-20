@@ -27,6 +27,10 @@ public class Passenger implements Queueable {
         return calculateProcessTime();
     }
 
+    public void setProcessTime(double time) {
+        this.processTime = time;
+    }
+
     public double getBusyTime() {
         if(isBusy()) {
             busyTime = calculateProcessTime();

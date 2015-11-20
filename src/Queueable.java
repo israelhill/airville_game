@@ -5,4 +5,8 @@ public interface Queueable {
     boolean isRegularPassenger();
     
     void setBusyStatus(boolean value);
+    
+    double getProcessTime();
+    
+    void setProcessTime(double time);
 }

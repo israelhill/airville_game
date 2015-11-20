@@ -1,8 +1,6 @@
 public class AutoLine extends AbstractLine {
     private Queue<Queueable> line = new Queue<>();
 
-    // TODO check for null when adding to the queue
-
     public AutoLine() {
         super();
     }
@@ -10,6 +8,7 @@ public class AutoLine extends AbstractLine {
     @Override
     public void processNextPassenger() throws InvalidOperationException {
         if(!line.isEmpty() && hasAgent()) {
+            computePassengerProcessingTime(line.peek());
             line.dequeue();
         }
         else {

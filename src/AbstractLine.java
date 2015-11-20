@@ -3,6 +3,7 @@ public abstract class AbstractLine {
     private boolean hasSupervisor;
     private boolean isBusy;
     private int supervisors;
+    private static final double SUPERVISOR_PROCESS_BONUS = 0.3;
 
     public AbstractLine() {
         hasAgent = false;
@@ -55,6 +56,14 @@ public abstract class AbstractLine {
         if(passenger == null) {
             String message = "Passenger is NULL";
             throw new InvalidOperationException(InvalidOperationException.ErrorCode.INVALID_PASSENGER, message);
+        }
+    }
+
+    void computePassengerProcessingTime(Queueable passenger) {
+        if(hasSupervisor()) {
+            double oldProcessTime = passenger.getProcessTime();
+            double newProcessTime = oldProcessTime * SUPERVISOR_PROCESS_BONUS;
+            passenger.setProcessTime(newProcessTime);
         }
     }
 

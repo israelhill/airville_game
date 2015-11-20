@@ -10,9 +10,11 @@ public class InPersonLine<T> extends AbstractLine {
     @Override
     public void processNextPassenger() throws InvalidOperationException {
         if(!frequentFlyerLine.isEmpty() && hasAgent()) {
+            computePassengerProcessingTime(frequentFlyerLine.peek());
             frequentFlyerLine.dequeue();
         }
         else if(!regularPassengerLine.isEmpty() && hasAgent()) {
+            computePassengerProcessingTime(regularPassengerLine.peek());
             regularPassengerLine.dequeue();
         }
         else {
