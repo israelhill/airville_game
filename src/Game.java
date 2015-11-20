@@ -10,6 +10,9 @@ public class Game {
 
     //TODO create an exception class and possibly throw errors when the player does not have enough diamonds
 
+    /**
+     * a constructor for the class
+     */
     public Game() {
         Agent agent = new Agent();
         agents.add(agent);
@@ -21,11 +24,17 @@ public class Game {
         diamonds = 0;
     }
 
-
+    /**
+     * player gets an additional diamond
+     */
     public void addDiamond() {
         diamonds++;
     }
 
+    /**
+     * spend a diamond to get an agent
+     * @throws InvalidOperationException
+     */
     public void redeemAgent() throws InvalidOperationException {
         checkDiamondCount();
 
@@ -34,6 +43,10 @@ public class Game {
         agents.add(agent);
     }
 
+    /**
+     * spend a diamond to get a supervisor
+     * @throws InvalidOperationException
+     */
     public void redeemSupervisor() throws InvalidOperationException {
         checkDiamondCount();
 
@@ -41,6 +54,10 @@ public class Game {
         supervisors++;
     }
 
+    /**
+     * spend a diamond to get an automated line
+     * @throws InvalidOperationException
+     */
     public void redeemAutomatedLine() throws InvalidOperationException {
         checkDiamondCount();
 
@@ -50,6 +67,10 @@ public class Game {
 
     }
 
+    /**
+     * spend a diamond to get a in person line
+     * @throws InvalidOperationException
+     */
     public void redeemInPersonLines() throws InvalidOperationException {
         checkDiamondCount();
 
@@ -58,6 +79,10 @@ public class Game {
         inPersonLines.add(line);
     }
 
+    /**
+     * check if the player has diamonds before spending them
+     * @throws InvalidOperationException
+     */
     public void checkDiamondCount() throws InvalidOperationException {
         if(!hasDiamonds()) {
             String message = "Not enough diamonds to redeem this entity";
@@ -65,6 +90,10 @@ public class Game {
         }
     }
 
+    /**
+     * decrease the diamond count by 1
+     * @throws InvalidOperationException
+     */
     public void decrementDiamonds() throws InvalidOperationException {
         if(hasDiamonds()) {
             diamonds--;
@@ -75,26 +104,50 @@ public class Game {
         }
     }
 
+    /**
+     * check if the player has diamonds
+     * @return true or false
+     */
     public boolean hasDiamonds() {
         return diamonds > 0;
     }
 
+    /**
+     * return the number of supervisors
+     * @return
+     */
     public int getSupervisors() {
         return supervisors;
     }
 
+    /**
+     * return the amount of diamonds the player has
+     * @return
+     */
     public int getDiamonds() {
         return diamonds;
     }
 
+    /**
+     * return the list of agents
+     * @return
+     */
     public ArrayList<Agent> getAgents() {
         return agents;
     }
 
+    /**
+     * return the lis of in person lines
+     * @return
+     */
     public ArrayList<AbstractLine> getInPersonLines() {
         return inPersonLines;
     }
 
+    /**
+     * return the list of auto lines
+     * @return
+     */
     public ArrayList<AbstractLine> getAutomatedLines() {
         return automatedLines;
     }

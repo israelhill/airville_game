@@ -1,3 +1,6 @@
+/**
+ * This is an interface to specify the behavior required by items
+ */
 public interface Queueable {
     
     boolean isFrequentFlyer();
