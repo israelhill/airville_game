@@ -1,3 +1,5 @@
+package project12;
+
 public abstract class AbstractLine {
     private boolean hasAgent;
     private boolean hasSupervisor;

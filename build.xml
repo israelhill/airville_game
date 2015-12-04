@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<project name="AirVille" default="compile" basedir=".">
+
+    <property name="src" value="./src" />
+    <property name="classes" value="./build/classes" />
+    <property name="test" value="./test"/>
+    <property name="docs.dir" value="./docs"/>
+    <property name="srcFiles" value="./src/project12"/>
+
+    <path id="test.classpath">
+        <pathelement location="${src}" />
+        <pathelement location="${classes}" />
+        <pathelement location="${test}"/>
+        <fileset dir=".">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="./src:./test" classpath="junit-4.12.jar" destdir="build/classes"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/LogReader.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="project10.LogReader"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="test" depends="compile">
+        <junit fork="yes" haltonfailure="yes" failureproperty="test.failed">
+            <batchtest>
+                <fileset dir="${test}">
+                    <include name="**/*Test*" />
+                </fileset>
+            </batchtest>
+            <formatter type="plain" usefile="false" />
+            <classpath refid="test.classpath" />
+        </junit>
+    </target>
+
+    <target name="javadoc" depends="">
+        <javadoc sourcepath="${src}" destdir="${docs.dir}"/>
+    </target>
+
+    <target name="build">
+        <echo message="Building project..."/>
+        <antcall target="compile"/>
+        <antcall target="jar"/>
+        <!--<antcall target="test"/>-->
+        <antcall target="javadoc"/>
+        <antcall target="clean"/>
+    </target>
+
+</project>

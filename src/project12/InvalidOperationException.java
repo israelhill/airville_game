@@ -1,3 +1,5 @@
+package project12;
+
 /**
  * an Exception class for the game
  */

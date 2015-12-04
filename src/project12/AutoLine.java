@@ -1,3 +1,5 @@
+package project12;
+
 public class AutoLine extends AbstractLine {
     private Queue<Queueable> line = new Queue<>();
 

@@ -1,3 +1,5 @@
+package project12;
+
 public class Passenger implements Queueable {
     private boolean hasExcessBaggage;
     private boolean isReRouted;

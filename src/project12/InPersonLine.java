@@ -1,3 +1,5 @@
+package project12;
+
 public class InPersonLine<T> extends AbstractLine {
     private Queue<Queueable> frequentFlyerLine = new Queue<>();
     private Queue<Queueable> regularPassengerLine = new Queue<>();

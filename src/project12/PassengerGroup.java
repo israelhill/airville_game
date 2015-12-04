@@ -1,3 +1,5 @@
+package project12;
+
 public class PassengerGroup implements Queueable {
     private int numMembers;
     private double processTime;
