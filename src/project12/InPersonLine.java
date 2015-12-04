@@ -4,11 +4,18 @@ public class InPersonLine<T> extends AbstractLine {
     private Queue<Queueable> frequentFlyerLine = new Queue<>();
     private Queue<Queueable> regularPassengerLine = new Queue<>();
 
-
+    /**
+     * a constructor for the class
+     */
     public InPersonLine() {
         super();
     }
 
+    /**
+     * process the next passenger at the front of the line
+     * @return a Queueable passenger
+     * @throws InvalidOperationException
+     */
     @Override
     public Queueable processNextPassenger() throws InvalidOperationException {
         if(!frequentFlyerLine.isEmpty() && hasAgent()) {
@@ -28,6 +35,12 @@ public class InPersonLine<T> extends AbstractLine {
 
     }
 
+    /**
+     * add a passenger to the end of the line
+     * @param passenger
+     * @param <E>
+     * @throws InvalidOperationException
+     */
     @Override
     public <E extends Queueable> void addPassenger(E passenger) throws InvalidOperationException {
         checkForNullPassenger(passenger);
@@ -40,6 +53,9 @@ public class InPersonLine<T> extends AbstractLine {
         }
     }
 
+    /**
+     * check if the line is busy and set the busy status of the line
+     */
     public void checkIfLineIsBusy() {
         if(regularPassengerLine.isEmpty() && frequentFlyerLine.isEmpty()) {
             setBusy(false);
@@ -49,6 +65,10 @@ public class InPersonLine<T> extends AbstractLine {
         }
     }
 
+    /**
+     * get the current number of passengers in the line
+     * @return int representing the number of passengers in the line
+     */
     public int getLineLength() {
         return frequentFlyerLine.size() + regularPassengerLine.size();
     }

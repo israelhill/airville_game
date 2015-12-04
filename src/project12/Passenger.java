@@ -33,7 +33,7 @@ public class Passenger implements Queueable {
 
     /**
      * get the passenger processing time
-     * @return
+     * @return double: process time
      */
     public double getProcessTime() {
         return calculateProcessTime();
@@ -49,7 +49,7 @@ public class Passenger implements Queueable {
 
     /**
      * return the aount of time this passenger is expected to be busy
-     * @return
+     * @return double: busy time
      */
     public double getBusyTime() {
         if(isBusy()) {
@@ -63,7 +63,7 @@ public class Passenger implements Queueable {
 
     /**
      * calculate the processing time based on the if the passenger is slow or not
-     * @return
+     * @return double: process time
      */
     public double calculateProcessTime() {
         if(isSlowPassenger()) {
@@ -84,7 +84,7 @@ public class Passenger implements Queueable {
 
     /**
      * get the passenger's busy status
-     * @return
+     * @return true if the passenger is busy, false otherwise
      */
     public boolean isBusy() {
         return isBusy;
@@ -92,7 +92,7 @@ public class Passenger implements Queueable {
 
     /**
      * check if the passenger is a frequent flyer
-     * @return
+     * @return true if the passenger is of type frequent flyer
      */
     public boolean isFrequentFlyer() {
         return isFrequentFlyer;
@@ -100,7 +100,7 @@ public class Passenger implements Queueable {
 
     /**
      * check if the passenger is normal
-     * @return
+     * @return true iof the passenger is of type regular passenger
      */
     public boolean isRegularPassenger() {
         return isRegularPassenger;
@@ -108,7 +108,7 @@ public class Passenger implements Queueable {
 
     /**
      * check if the passenger is slow
-     * @return
+     * @return true if the passenger has been rerouted
      */
     public boolean isReRouted() {
         return isReRouted;
@@ -116,7 +116,7 @@ public class Passenger implements Queueable {
 
     /**
      * check if the passenger is slow
-     * @return
+     * @return true if the passenger's flight was overbooked
      */
     public boolean isOverbooked() {
         return isOverbooked;
@@ -124,7 +124,7 @@ public class Passenger implements Queueable {
 
     /**
      * check if the passenger is slow
-     * @return
+     * @return true if the passenger has excess baggage
      */
     public boolean hasExcessBaggage() {
         return hasExcessBaggage;
@@ -161,7 +161,7 @@ public class Passenger implements Queueable {
     }
 
     /**
-     * set passenger rerout status
+     * set passenger reroute status
      * @param value
      */
     public void setReRouted(boolean value) {
@@ -178,7 +178,7 @@ public class Passenger implements Queueable {
 
     /**
      * check if the passenger is of one of the slow types
-     * @return
+     * @return true if the passenger is of any of the slow types
      */
     public boolean isSlowPassenger() {
         return isOverbooked() || isReRouted() || hasExcessBaggage();

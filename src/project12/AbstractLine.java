@@ -45,7 +45,7 @@ public abstract class AbstractLine {
 
     /**
      * check if line has a supervisor
-     * @return
+     * @return true if the line has a supervisor, false otherwise
      */
     boolean hasSupervisor() {
         return hasSupervisor;
@@ -53,7 +53,7 @@ public abstract class AbstractLine {
 
     /**
      * check if the line has a agent
-     * @return
+     * @return true if the line has an agen, false otherwise
      */
     boolean hasAgent() {
         return hasAgent;
@@ -61,7 +61,7 @@ public abstract class AbstractLine {
 
     /**
      * return whether or not the line is busy or not
-     * @return
+     * @return true if the line is busy, false otherwise
      */
     boolean isBusy() {
         return isBusy;

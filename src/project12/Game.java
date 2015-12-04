@@ -108,7 +108,7 @@ public class Game {
 
     /**
      * check if the player has diamonds
-     * @return true or false
+     * @return true if the player has deiamonds
      */
     public boolean hasDiamonds() {
         return diamonds > 0;
@@ -116,7 +116,7 @@ public class Game {
 
     /**
      * return the number of supervisors
-     * @return
+     * @return the current number of supervisors
      */
     public int getSupervisors() {
         return supervisors;
@@ -124,7 +124,7 @@ public class Game {
 
     /**
      * return the amount of diamonds the player has
-     * @return
+     * @return int representing the number of diamonds the player has
      */
     public int getDiamonds() {
         return diamonds;
@@ -132,7 +132,7 @@ public class Game {
 
     /**
      * return the list of agents
-     * @return
+     * @return ArrayList of type Agent
      */
     public ArrayList<Agent> getAgents() {
         return agents;
@@ -140,7 +140,7 @@ public class Game {
 
     /**
      * return the lis of in person lines
-     * @return
+     * @return ArrayList of type AbstractLine
      */
     public ArrayList<AbstractLine> getInPersonLines() {
         return inPersonLines;
@@ -148,7 +148,7 @@ public class Game {
 
     /**
      * return the list of auto lines
-     * @return
+     * @return ArrayList of type AbstractLine
      */
     public ArrayList<AbstractLine> getAutomatedLines() {
         return automatedLines;

@@ -12,6 +12,9 @@ public class Agent {
 
     // TODO add method for adding lines to agent's auto lines?
 
+    /**
+     * a constructor for the class
+     */
     public Agent() {
         this.lineLimit = LINE_LIMIT;
         isFreeAgent = true;
@@ -19,14 +22,27 @@ public class Agent {
         isInPersonLineAgent = false;
     }
 
+    /**
+     * get the max number of automated lines this agent can visit
+     * @return the number of automated lines this agent can visit
+     */
     public int getLineLimit() {
         return lineLimit;
     }
 
+    /**
+     * get a list of the lines this agent is assigned to
+     * @return an ArrayList of AbstractLines
+     */
     public ArrayList<AbstractLine> getAssignedAutomatedLines() {
         return assignedLines;
     }
 
+    /**
+     * assign this agent another line if it has not reached its max
+     * @param line
+     * @throws InvalidOperationException
+     */
     public void addAutoLineAssignment(AutoLine line) throws InvalidOperationException {
         if(isFreeAgent) {
             isFreeAgent = false;
@@ -47,6 +63,11 @@ public class Agent {
         }
     }
 
+    /**
+     *
+     * @param line
+     * @throws InvalidOperationException
+     */
     public void addInPersonLine(InPersonLine line) throws InvalidOperationException {
         if(isFreeAgent) {
             isFreeAgent = false;
@@ -61,9 +82,4 @@ public class Agent {
         line.addAgent();
     }
 
-    public void setAgentType() {
-        if(isFreeAgent) {
-
-        }
-    }
 }

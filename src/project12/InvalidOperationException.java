@@ -30,7 +30,7 @@ public class InvalidOperationException extends Exception {
 
     /**
      * get the error code
-     * @return
+     * @return ErrorCode
      */
     public ErrorCode getErrorCode() {
         return errorCode;
@@ -38,7 +38,7 @@ public class InvalidOperationException extends Exception {
 
     /**
      * to string for the class
-     * @return
+     * @return String: error message
      */
     public String toString() {
         return message;

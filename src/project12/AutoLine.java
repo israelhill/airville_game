@@ -3,10 +3,18 @@ package project12;
 public class AutoLine extends AbstractLine {
     private Queue<Queueable> line = new Queue<>();
 
+    /**
+     * a constructor for the class
+     */
     public AutoLine() {
         super();
     }
 
+    /**
+     * process the next passenger in a line
+     * @return a Queueable passenger
+     * @throws InvalidOperationException
+     */
     @Override
     public Queueable processNextPassenger() throws InvalidOperationException {
         if(!line.isEmpty() && hasAgent()) {
@@ -20,6 +28,9 @@ public class AutoLine extends AbstractLine {
         }
     }
 
+    /**
+     * check if a line is busy and set the busy status of the line
+     */
     @Override
     void checkIfLineIsBusy() {
         if(line.isEmpty()) {
@@ -30,6 +41,11 @@ public class AutoLine extends AbstractLine {
         }
     }
 
+    /**
+     * add a passenger to the end of a line
+     * @param passenger
+     * @throws InvalidOperationException
+     */
     @Override
     void addPassenger(Queueable passenger) throws InvalidOperationException {
         checkForNullPassenger(passenger);
