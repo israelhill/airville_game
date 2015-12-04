@@ -2,6 +2,10 @@ package project12;
 
 import java.util.ArrayList;
 
+/**
+ * Class representing the game state. This is where
+ * all entities int the game are stored.
+ */
 public class Game {
     private int diamonds;
     private int supervisors;

@@ -1,5 +1,9 @@
 package project12;
 
+/**
+ * class representing an in person line. This class extends abstract line.
+ * @param <T>
+ */
 public class InPersonLine<T> extends AbstractLine {
     private Queue<Queueable> frequentFlyerLine = new Queue<>();
     private Queue<Queueable> regularPassengerLine = new Queue<>();

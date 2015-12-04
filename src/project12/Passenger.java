@@ -1,5 +1,8 @@
 package project12;
 
+/**
+ * This class represents passengers. It implements the Queueable interface.
+ */
 public class Passenger implements Queueable {
     private boolean hasExcessBaggage;
     private boolean isReRouted;

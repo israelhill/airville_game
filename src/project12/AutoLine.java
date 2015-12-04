@@ -1,5 +1,8 @@
 package project12;
-
+/**
+ * class representing automated lines.
+ * This class extends AbstractLine.
+ */
 public class AutoLine extends AbstractLine {
     private Queue<Queueable> line = new Queue<>();
 

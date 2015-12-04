@@ -2,6 +2,9 @@ package project12;
 
 import java.util.ArrayList;
 
+/**
+ * A class representing airport agents.
+ */
 public class Agent {
     private int lineLimit;
     private boolean isAutoLineAgent;

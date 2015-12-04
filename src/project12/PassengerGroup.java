@@ -1,5 +1,9 @@
 package project12;
 
+/**
+ * This class represents passenger groups (2 or more passengers).
+ * This class implements the Queueable interface
+ */
 public class PassengerGroup implements Queueable {
     private int numMembers;
     private double processTime;

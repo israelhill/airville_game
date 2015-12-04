@@ -1,7 +1,7 @@
 package project12;
 
 /**
- * This is an interface to specify the behavior required by items
+ * This is an interface to specify the behavior required by items queued into lines
  */
 public interface Queueable {
 

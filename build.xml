@@ -47,9 +47,9 @@
         <!--</junit>-->
     <!--</target>-->
 
-    <!--<target name="javadoc" depends="">-->
-        <!--<javadoc sourcepath="${src}" destdir="${docs.dir}"/>-->
-    <!--</target>-->
+    <target name="javadoc" depends="">
+        <javadoc sourcepath="${src}" destdir="${docs.dir}"/>
+    </target>
 
     <target name="build">
         <echo message="Building project..."/>
