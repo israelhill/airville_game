@@ -94,7 +94,7 @@ public class Game {
 
     /**
      * decrease the diamond count by 1
-     * @throws InvalidOperationException
+     * @throws InvalidOperationException if removing diamonds and player has no diamonds
      */
     public void decrementDiamonds() throws InvalidOperationException {
         if(hasDiamonds()) {

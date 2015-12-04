@@ -40,7 +40,7 @@ public class Agent {
 
     /**
      * assign this agent another line if it has not reached its max
-     * @param line
+     * @param line the line you want this agent assigned to
      * @throws InvalidOperationException
      */
     public void addAutoLineAssignment(AutoLine line) throws InvalidOperationException {
@@ -64,8 +64,8 @@ public class Agent {
     }
 
     /**
-     *
-     * @param line
+     * assign this agent an in person line
+     * @param line the line you want to assign to this agent
      * @throws InvalidOperationException
      */
     public void addInPersonLine(InPersonLine line) throws InvalidOperationException {

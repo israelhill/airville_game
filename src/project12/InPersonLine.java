@@ -37,8 +37,8 @@ public class InPersonLine<T> extends AbstractLine {
 
     /**
      * add a passenger to the end of the line
-     * @param passenger
-     * @param <E>
+     * @param passenger the passenger to be added
+     * @param <E> generic type that must extend Queueable
      * @throws InvalidOperationException
      */
     @Override

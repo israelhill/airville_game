@@ -13,7 +13,7 @@ public class AutoLine extends AbstractLine {
     /**
      * process the next passenger in a line
      * @return a Queueable passenger
-     * @throws InvalidOperationException
+     * @throws InvalidOperationException if line is empty
      */
     @Override
     public Queueable processNextPassenger() throws InvalidOperationException {
@@ -43,7 +43,7 @@ public class AutoLine extends AbstractLine {
 
     /**
      * add a passenger to the end of a line
-     * @param passenger
+     * @param passenger the passenger you want to add to the line
      * @throws InvalidOperationException
      */
     @Override

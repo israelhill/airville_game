@@ -143,7 +143,7 @@ public class Passenger implements Queueable {
 
     /**
      * set the passenger to be normal
-     * @param value
+     * @param value true if passenger is regular, false if not
      */
     public void setRegularPassenger(boolean value) {
         isRegularPassenger = value;
@@ -154,7 +154,7 @@ public class Passenger implements Queueable {
 
     /**
      * set excess baggage status
-     * @param value
+     * @param value true if passenger has excess baggage, false if not
      */
     public void setExcessBaggage(boolean value) {
         hasExcessBaggage = value;
@@ -162,7 +162,7 @@ public class Passenger implements Queueable {
 
     /**
      * set passenger reroute status
-     * @param value
+     * @param value true if passenger has been rerouted
      */
     public void setReRouted(boolean value) {
         isReRouted = value;
@@ -170,7 +170,7 @@ public class Passenger implements Queueable {
 
     /**
      * set overbooked status
-     * @param value
+     * @param value true to mark passenger as overbooked
      */
     public void setOverbooked(boolean value) {
         isOverbooked = value;
